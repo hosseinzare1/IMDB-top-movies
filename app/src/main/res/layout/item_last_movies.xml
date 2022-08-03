@@ -39,6 +39,7 @@
         android:maxLines="1"
         android:textColor="@color/white"
         android:textSize="@dimen/_14font_mdp"
+        android:layout_marginTop="@dimen/_10mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/moviePosterCard"
         app:layout_constraintTop_toTopOf="@id/moviePosterCard" />

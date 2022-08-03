@@ -1,4 +1,4 @@
-package com.example.imdbtopmovies.ui.home
+package com.example.imdbtopmovies.ui.favorite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,15 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.imdbtopmovies.databinding.ItemLastMoviesBinding
 import com.example.imdbtopmovies.databinding.ItemTopMovieBinding
+import com.example.imdbtopmovies.db.MovieEntity
 import com.example.imdbtopmovies.models.home.TopMoviesResponse
 import javax.inject.Inject
 
-class LastMoviesAdapter @Inject constructor() :
-    RecyclerView.Adapter<LastMoviesAdapter.ViewHolder>() {
+class FavoriteAdapter @Inject constructor() :
+    RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
     lateinit var binding: ItemLastMoviesBinding
 
-    var moviesList = emptyList<TopMoviesResponse.Data>()
+    var moviesList = emptyList<MovieEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ItemLastMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -32,7 +33,7 @@ class LastMoviesAdapter @Inject constructor() :
     override fun getItemCount() = moviesList.size
 
 
-    fun setData(data: List<TopMoviesResponse.Data>) {
+    fun setData(data: List<MovieEntity>) {
 
         val diffUtilCallBack = DiffCallBack(moviesList, data)
         val differ = DiffUtil.calculateDiff(diffUtilCallBack)
@@ -43,8 +44,8 @@ class LastMoviesAdapter @Inject constructor() :
     }
 
     class DiffCallBack(
-        private val oldItems: List<TopMoviesResponse.Data>,
-        private val newItems: List<TopMoviesResponse.Data>
+        private val oldItems: List<MovieEntity>,
+        private val newItems: List<MovieEntity>
     ) : DiffUtil.Callback() {
         override fun getOldListSize(): Int {
             return oldItems.size
@@ -65,7 +66,7 @@ class LastMoviesAdapter @Inject constructor() :
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: TopMoviesResponse.Data) {
+        fun bind(data: MovieEntity) {
             binding.apply {
                 movieTitle.text = data.title
                 movieCountry.text = data.country

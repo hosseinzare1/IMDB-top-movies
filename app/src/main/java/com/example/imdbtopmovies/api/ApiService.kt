@@ -5,10 +5,7 @@ import com.example.imdbtopmovies.models.home.TopMoviesResponse
 import com.example.imdbtopmovies.models.register.RegisterBody
 import com.example.imdbtopmovies.models.register.RegisterResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 
 interface ApiService {
@@ -18,11 +15,14 @@ interface ApiService {
 
 
     @GET("genres/{id}/movies")
-    suspend fun getTopMovies(@Path("id") id :Int):Response<TopMoviesResponse>
+    suspend fun getTopMovies(@Path("id") id: Int): Response<TopMoviesResponse>
 
     @GET("movies")
-    suspend fun getLastMovies():Response<TopMoviesResponse>
+    suspend fun getLastMovies(): Response<TopMoviesResponse>
+
+    @GET("movies")
+    suspend fun searchMovies(@Query("q") text: String): Response<TopMoviesResponse>
 
     @GET("genres")
-    suspend fun getGenres():Response<GenresResponse>
+    suspend fun getGenres(): Response<GenresResponse>
 }
