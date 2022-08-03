@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.IMDBTopMovies" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/amber_500</item>
+        <item name="colorPrimaryVariant">@color/amber_800</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/amber_500</item>
+        <item name="colorSecondaryVariant">@color/amber_800</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/chineseBlack</item>
+        <item name="backgroundColor">@color/chineseBlack</item>
+    </style>
+
+    <style name="TextViewLightStyle" parent="Widget.AppCompat.TextView">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="FilledTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="hintTextColor">@color/amber_800</item>
+        <item name="startIconTint">@color/philippineSilver</item>
+        <item name="boxStrokeColor">@color/amber_800</item>
+        <item name="boxBackgroundColor">@color/gunmetal</item>
+
+
+    </style>
+</resources>
