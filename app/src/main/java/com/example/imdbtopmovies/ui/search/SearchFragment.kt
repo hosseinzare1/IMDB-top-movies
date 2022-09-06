@@ -1,14 +1,14 @@
 package com.example.imdbtopmovies.ui.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.imdbtopmovies.R
 import com.example.imdbtopmovies.databinding.FragmentSearchBinding
 import com.example.imdbtopmovies.repository.SearchRepository
 import com.example.imdbtopmovies.ui.home.LastMoviesAdapter
@@ -31,10 +31,7 @@ class SearchFragment : Fragment() {
 
     val viewModel: SearchViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = FragmentSearchBinding.inflate(layoutInflater)
         return binding.root
@@ -44,31 +41,40 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Init Views
         binding.apply {
+
             //Call Search
             searchEdt.addTextChangedListener {
                 val text = it.toString()
                 if (text.isNotEmpty()) viewModel.searchMovie(text)
             }
 
-//            Get Movies List
+            //Get Movies List
             viewModel.moviesList.observe(viewLifecycleOwner) { movies ->
                 moviesAdapter.setData(movies.data)
-//                Init Recycler
+
+                //Init Recycler
                 moviesList.apply {
                     adapter = moviesAdapter
                     layoutManager = LinearLayoutManager(requireContext())
                 }
 
-//              Loading
+                //Loading
                 viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
                     loading.visibility = if (isLoading) View.VISIBLE else View.GONE
                     moviesList.visibility = if (isLoading) View.GONE else View.VISIBLE
                 }
-//                Empty List
+
+                //Empty List
                 viewModel.emptyList.observe(viewLifecycleOwner) { isEmpty ->
                     emptyListLayout.visibility = if (isEmpty) View.VISIBLE else View.GONE
                     moviesList.visibility = if (isEmpty) View.GONE else View.VISIBLE
 
+                }
+
+                //Click
+                moviesAdapter.setOnClickListener {
+                    val direction = SearchFragmentDirections.actionToDetailFragment(it.id!!)
+                    findNavController().navigate(direction)
                 }
 
             }

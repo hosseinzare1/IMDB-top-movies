@@ -1,6 +1,5 @@
 package com.example.imdbtopmovies.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,7 +16,7 @@ class RegisterViewModel @Inject constructor(private val repository: RegisterRepo
 
     val registerUserResponse = MutableLiveData<RegisterResponse>()
     val loading = MutableLiveData<Boolean>()
-    val TAG = "RegisterViewModel"
+    val error = MutableLiveData<String>()
     fun registerUser(user: RegisterBody) {
         viewModelScope.launch {
             loading.postValue(true)
@@ -25,11 +24,10 @@ class RegisterViewModel @Inject constructor(private val repository: RegisterRepo
             if (response.isSuccessful) {
                 registerUserResponse.postValue(response.body())
             }
-            Log.i(
-                TAG,
-                "registerUser:${response.code()}|errorBody:${response.errorBody()?.string()}|message: ${response.message()} | ${response.body()}"
-            )
+            error.postValue(response.errorBody()?.string())
+
             loading.postValue(false)
+
         }
     }
 

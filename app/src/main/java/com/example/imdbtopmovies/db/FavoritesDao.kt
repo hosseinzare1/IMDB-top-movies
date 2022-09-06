@@ -16,6 +16,6 @@ interface FavoritesDao {
     fun getAllFavorites(): MutableList<MovieEntity>
 
     @Query("SELECT EXISTS (SELECT 1 FROM ${Constants.FAVORITES_TABLE_NAME} WHERE id =:movieID) ")
-    fun isMovieFavorite(movieID: Int): MutableList<MovieEntity>
+    fun isMovieFavorite(movieID: Int): Boolean
 
 }

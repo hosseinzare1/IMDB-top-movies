@@ -1,5 +1,6 @@
 package com.example.imdbtopmovies.api
 
+import com.example.imdbtopmovies.models.details.MovieDetailsResponse
 import com.example.imdbtopmovies.models.home.GenresResponse
 import com.example.imdbtopmovies.models.home.TopMoviesResponse
 import com.example.imdbtopmovies.models.register.RegisterBody
@@ -25,4 +26,7 @@ interface ApiService {
 
     @GET("genres")
     suspend fun getGenres(): Response<GenresResponse>
+
+    @GET("movies/{id}")
+    suspend fun getMovieDetails(@Path("id") id: Int): Response<MovieDetailsResponse>
 }

@@ -3,14 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable-v24/gradient_detail_image.xml" value="0.178" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/background_button.xml" value="0.1815" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/genre_backgroune.xml" value="0.2545" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/gradient_home_image.xml" value="0.10400000000000001" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.1995" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/ic_group_569.xml" value="0.1995" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/ic_rectangle.xml" value="0.1995" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/drawable/ic_round_favorite_24.xml" value="0.1" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_favorite.xml" value="0.2222222222222222" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_register.xml" value="0.2222222222222222" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_search.xml" value="0.2222222222222222" />
-        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_splash.xml" value="0.23842592592592593" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/fragment_splash.xml" value="0.176" />
+        <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/item_detail_image.xml" value="0.1875" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/item_genres.xml" value="0.72" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/item_home_top.xml" value="0.2" />
         <entry key="..\:/Programing/Android_Projects/IMDBTopMovies/app/src/main/res/layout/item_last_movies.xml" value="0.2222222222222222" />

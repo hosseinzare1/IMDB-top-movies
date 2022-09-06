@@ -17,19 +17,14 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SplashFragment : Fragment() {
-
+    //Binding
     lateinit var binding: FragmentSplashBinding
 
     @Inject
     lateinit var userDataStore: UserDataStore
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSplashBinding.inflate(layoutInflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -38,7 +33,7 @@ class SplashFragment : Fragment() {
 
         lifecycle.coroutineScope.launchWhenCreated {
             delay(1000)
-            userDataStore.getUserToken().collect() {
+            userDataStore.getUserToken().collect {
                 if (it.isEmpty()) {
                     findNavController().navigate(R.id.action_splashFragment_to_registerFragment)
                 } else {

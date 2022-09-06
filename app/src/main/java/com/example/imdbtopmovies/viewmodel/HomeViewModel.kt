@@ -17,6 +17,8 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
     val topMoviesList = MutableLiveData<TopMoviesResponse>()
     val genresList = MutableLiveData<GenresResponse>()
     val lastMoviesList = MutableLiveData<TopMoviesResponse>()
+
+    val loading = MutableLiveData<Boolean>()
     fun getTopMovies(id: Int) {
         viewModelScope.launch {
             val response = repository.getTopMovies(id)
@@ -35,14 +37,13 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         }
     }
 
-    fun getLastMovies() {
-        viewModelScope.launch {
-            val response = repository.getLastMovies()
-            if (response.isSuccessful) {
-                lastMoviesList.postValue(response.body())
-            }
+    fun getLastMovies() = viewModelScope.launch {
+        loading.postValue(true)
+        val response = repository.getLastMovies()
+        if (response.isSuccessful) {
+            lastMoviesList.postValue(response.body())
         }
+        loading.postValue(false)
     }
-
 
 }

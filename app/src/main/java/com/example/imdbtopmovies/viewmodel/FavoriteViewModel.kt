@@ -3,9 +3,6 @@ package com.example.imdbtopmovies.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.Entity
-import com.example.imdbtopmovies.db.FavoriteDB
-import com.example.imdbtopmovies.db.FavoritesDao
 import com.example.imdbtopmovies.db.MovieEntity
 import com.example.imdbtopmovies.repository.FavoriteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,13 +23,9 @@ class FavoriteViewModel @Inject constructor(private val repository: FavoriteRepo
                 favoriteList.postValue(favorites)
                 empty.postValue(false)
             } else {
-
                 empty.postValue(true)
             }
-
-
         }
-
     }
 
 }

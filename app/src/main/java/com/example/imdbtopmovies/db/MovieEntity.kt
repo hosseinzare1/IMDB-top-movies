@@ -6,12 +6,12 @@ import com.example.imdbtopmovies.utils.Constants
 
 @Entity(tableName = Constants.FAVORITES_TABLE_NAME)
 data class MovieEntity(
-    @PrimaryKey()
-    val id: Int = 0, // 1
-    val country: String = "", // USA
-    val imdbRating: String = "", // 9.3
-    val poster: String = "", // https://moviesapi.ir/images/tt0111161_poster.jpg
-    val title: String = "", // The Shawshank Redemption
-    val year: String = "" // 1994
+    @PrimaryKey
+    var id: Int = 0, // 1
+    var country: String = "", // USA
+    var imdbRating: String = "", // 9.3
+    var poster: String = "", // https://moviesapi.ir/images/tt0111161_poster.jpg
+    var title: String = "", // The Shawshank Redemption
+    var year: String = "" // 1994
 
 )

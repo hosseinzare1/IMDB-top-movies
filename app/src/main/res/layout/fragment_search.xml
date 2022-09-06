@@ -9,11 +9,13 @@
     <EditText
         android:id="@+id/searchEdt"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30mdp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10mdp"
-        android:background="@drawable/genre_backgroune"
+        android:background="@drawable/genre_background"
         android:hint="@string/searchHere"
         android:padding="@dimen/_10mdp"
+        android:textColor="@color/white"
+        android:lines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

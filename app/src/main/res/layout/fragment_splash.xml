@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/_200mdp"
         android:layout_height="@dimen/_200mdp"
-        android:src="@drawable/movie"
+        android:src="@drawable/app_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_32mdp"
         android:text="@string/app_name"
+        android:textSize="@dimen/_14font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

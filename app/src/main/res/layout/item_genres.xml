@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_5mdp"
-        android:background="@drawable/genre_backgroune"
+        android:background="@drawable/genre_background"
         android:padding="@dimen/_5mdp"
         android:textSize="@dimen/_10mdp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,22 +2,20 @@ package com.example.imdbtopmovies.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.datastore.preferences.core.preferencesOf
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.imdbtopmovies.databinding.ItemLastMoviesBinding
-import com.example.imdbtopmovies.databinding.ItemTopMovieBinding
-import com.example.imdbtopmovies.models.home.TopMoviesResponse
+import com.example.imdbtopmovies.models.home.TopMoviesResponse.Data
 import javax.inject.Inject
 
 class LastMoviesAdapter @Inject constructor() :
     RecyclerView.Adapter<LastMoviesAdapter.ViewHolder>() {
 
+    //binding
     lateinit var binding: ItemLastMoviesBinding
 
-    var moviesList = emptyList<TopMoviesResponse.Data>()
+    private var moviesList = emptyList<Data>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ItemLastMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -31,20 +29,22 @@ class LastMoviesAdapter @Inject constructor() :
 
     override fun getItemCount() = moviesList.size
 
+    private var onClickListener: ((Data) -> Unit)? = null
 
-    fun setData(data: List<TopMoviesResponse.Data>) {
+    fun setOnClickListener(onClickListener: ((Data) -> Unit)) {
+        this.onClickListener = onClickListener
+    }
 
+    fun setData(data: List<Data>) {
         val diffUtilCallBack = DiffCallBack(moviesList, data)
         val differ = DiffUtil.calculateDiff(diffUtilCallBack)
         moviesList = data
         differ.dispatchUpdatesTo(this)
-
-
     }
 
     class DiffCallBack(
-        private val oldItems: List<TopMoviesResponse.Data>,
-        private val newItems: List<TopMoviesResponse.Data>
+        private val oldItems: List<Data>,
+        private val newItems: List<Data>
     ) : DiffUtil.Callback() {
         override fun getOldListSize(): Int {
             return oldItems.size
@@ -65,7 +65,7 @@ class LastMoviesAdapter @Inject constructor() :
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: TopMoviesResponse.Data) {
+        fun bind(data: Data) {
             binding.apply {
                 movieTitle.text = data.title
                 movieCountry.text = data.country
@@ -76,6 +76,13 @@ class LastMoviesAdapter @Inject constructor() :
                 moviePosterImage.load(data.poster) {
                     crossfade(true)
                     crossfade(500)
+                }
+
+//                Click Listener
+                root.setOnClickListener {
+                    onClickListener?.let {
+                        it(data)
+                    }
                 }
             }
         }

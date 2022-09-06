@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:contentDescription="@string/emptyList"
         android:id="@+id/emptyListImage"
         android:layout_width="@dimen/_100mdp"
         android:layout_height="@dimen/_100mdp"

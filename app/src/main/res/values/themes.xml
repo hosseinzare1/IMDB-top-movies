@@ -27,7 +27,11 @@
         <item name="startIconTint">@color/philippineSilver</item>
         <item name="boxStrokeColor">@color/amber_800</item>
         <item name="boxBackgroundColor">@color/gunmetal</item>
-
-
     </style>
+
+    <style name="roundedImageStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_10mdp</item>
+    </style>
+
 </resources>

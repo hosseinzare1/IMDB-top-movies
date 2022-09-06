@@ -1,7 +1,5 @@
 package com.example.imdbtopmovies.viewmodel
 
-import android.view.MotionEvent
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,14 +27,8 @@ class SearchViewModel @Inject constructor(private val repository: SearchReposito
                 } else {
                     emptyList.postValue(true)
                 }
-
             }
             loading.postValue(false)
-
-
         }
-
     }
-
-
 }

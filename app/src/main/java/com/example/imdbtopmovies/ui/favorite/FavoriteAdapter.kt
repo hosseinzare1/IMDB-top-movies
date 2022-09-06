@@ -2,15 +2,11 @@ package com.example.imdbtopmovies.ui.favorite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.datastore.preferences.core.preferencesOf
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.imdbtopmovies.databinding.ItemLastMoviesBinding
-import com.example.imdbtopmovies.databinding.ItemTopMovieBinding
 import com.example.imdbtopmovies.db.MovieEntity
-import com.example.imdbtopmovies.models.home.TopMoviesResponse
 import javax.inject.Inject
 
 class FavoriteAdapter @Inject constructor() :
@@ -18,7 +14,7 @@ class FavoriteAdapter @Inject constructor() :
 
     lateinit var binding: ItemLastMoviesBinding
 
-    var moviesList = emptyList<MovieEntity>()
+    private var moviesList = emptyList<MovieEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ItemLastMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -64,6 +60,12 @@ class FavoriteAdapter @Inject constructor() :
         }
     }
 
+    private var onClickListener: ((MovieEntity) -> Unit)? = null
+
+    fun setOnClickListener(onClickListener: ((MovieEntity) -> Unit)) {
+        this.onClickListener = onClickListener
+    }
+
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: MovieEntity) {
@@ -78,7 +80,17 @@ class FavoriteAdapter @Inject constructor() :
                     crossfade(true)
                     crossfade(500)
                 }
+
+//                Click Listener
+                root.setOnClickListener {
+                    onClickListener?.let {
+                        it(data)
+                    }
+
+                }
             }
+
+
         }
 
     }

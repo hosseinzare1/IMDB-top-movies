@@ -2,7 +2,6 @@ package com.example.imdbtopmovies.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.imdbtopmovies.db.FavoriteDB
 import com.example.imdbtopmovies.db.FavoritesDao
 import com.example.imdbtopmovies.db.MovieEntity
@@ -30,7 +29,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideEntity() = MovieEntity()
+    fun provideEntity(): MovieEntity = MovieEntity()
 
 
     @Provides

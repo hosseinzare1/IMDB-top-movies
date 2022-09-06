@@ -5,11 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.example.imdbtopmovies.databinding.ItemGenresBinding
-import com.example.imdbtopmovies.databinding.ItemTopMovieBinding
 import com.example.imdbtopmovies.models.home.GenresResponse
-import com.example.imdbtopmovies.models.home.TopMoviesResponse
 import javax.inject.Inject
 
 class GenresAdapter @Inject constructor() : RecyclerView.Adapter<GenresAdapter.ViewHolder>() {
